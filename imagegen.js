@@ -29,7 +29,7 @@ function getRandomColors() {
         c2 = "rgba(" + (r + dr) + ", " + g + ", " + (b + db) + ", " + getRandomFloat(0.8) + ")";
         c3 = "rgba(" + r + ", " + (g + dg) + ", " + (b + db) + ", " + getRandomFloat(0.8) + ")";
 
-     console.log([c1,c2,c3])
+		// console.log([c1,c2,c3])
         return [c1,c2,c3];
 }
 
@@ -79,9 +79,6 @@ function genImage() {
     var img_h = canvas.height;
 
     var clrs = getRandomColors();
-    var clr1 = 'red';
-    var clr2 = 'blue';
-    var clr3 = 'green';
 
     var square_size = 50;
     var sc_n = 6;
@@ -130,12 +127,8 @@ function genImage() {
         } else {
           ctx.fillStyle = clrs[1];
         }
-        //console.log("x" + sc + " = " + (x0 - dx) + " | y" + sc + " = " + (y0 -dy) + " | width" + sc + " = " + dss);
-        if (type = 1) {
-          ctx.fillRect(x0 - dx, y0 - dy, 2 * dx, 2 * dy);
-        } else if (type = 2) {
-          ctx.fillRect(x0 - dx, y0 - dy, 2 * dx, 2 * dy);
-        }
+
+        ctx.fillRect(x0 - dx, y0 - dy, 2 * dx, 2 * dy);
       }
     }
   }

@@ -10,12 +10,58 @@
             width: 640px;
             margin: 100px auto;
         }
+		.title {
+			padding-bottom: 0.3em;
+			font-size: 2em;
+			border-bottom: 1px solid #eaecef;
+		}
+		
+		p {
+		    margin-top: 0;
+			margin-bottom: 16px;
+		}
+		
+		code {
+			padding: 0.2em 0.4em;
+			margin: 0;
+			font-size: 85%;
+			background-color: rgba(27,31,35,0.05);
+			border-radius: 3px;
+		}
+		
+		.btn {
+			display: block;
+			width: 175px;
+			height: 22px;
+			background: #4E9CAF;
+			padding: 10px;
+			text-align: center;
+			border-radius: 5px;
+			color: white;
+			font-weight: bold;
+			margin: 15px auto;
+		}
+		
+		h4 {
+			margin-bottom: 26px;
+		}
     </style>
 </head>
 
 <body onload="genImage();">
 <div id="container">
+	<h1 class="title"><a href="https://github.com/pashcovich/RandomImageJs">RandomImageJs</a></h1>
+    <h2 class="">Pseudo Random Image Generator</h1>
+
+	<p>JavaScript implementation of my Python <a href="https://github.com/pashcovich/RandomImage">RandomImage</a> generator</p>
+
+	<p>It will be generate a new image with size 640x480 for canvas element with <code>onload()</code> method</p>
+	
+	<h4 style="text-align: center">For new image just press <code>F5</code> or button after image</h4>
+	
     <canvas id="canvas" width="640" height="480"></canvas>
+	
+	<span><a class="btn" href="#" onclick="genImage()">Generate new image</a></span>
 </div>
 
 <script src="imagegen.js"></script>
