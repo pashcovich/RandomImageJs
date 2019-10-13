@@ -74,25 +74,27 @@ function cos3x(value) {
 function genImage() {
   var canvas = document.getElementById('canvas');
   if (canvas.getContext) {
-    var ctx = canvas.getContext('2d');
-    var img_w = canvas.width;
-    var img_h = canvas.height;
-
-    var clrs = getRandomColors();
-
-    var square_size = 50;
-    var sc_n = 6;
-    var type = 1;
-    var rnd_min_size = 50;
-    var rnd_max_size = 90;
+    var ctx = canvas.getContext('2d'),
+        img_w = canvas.width,
+        img_h = canvas.height,
+        clrs = getRandomColors(),
+        sc_n = 6,
+        rnd_min_size = 50,
+        rnd_max_size = 90,
+        figure_size = getRandomInteger(rnd_min_size, rnd_max_size);
 
     ctx.fillStyle = clrs[1];
     ctx.fillRect(0, 0, img_w, img_h);
 
+    // 0 - square
+    // 1 - triangle
+    // 2 - circle 
+    var figureType = getRandomInteger(0, 3);  
+
     var points = [];
 
-    for (var xa = 0; xa <= img_w + rnd_min_size; xa += 0.8 * rnd_min_size) {
-      for (var ya = 0; ya <= img_h; ya += 0.8 * rnd_min_size) {
+    for (var xa = 0; xa <= img_w + rnd_min_size; xa += 0.6 * rnd_min_size) {
+      for (var ya = 0; ya <= img_h; ya += 0.6 * rnd_min_size) {
         var rnd_x_shift = getRandomInteger(-5, 5);
         var rnd_y_shift = getRandomInteger(-5, 5);
         var y = 0;
@@ -118,18 +120,50 @@ function genImage() {
       var x0 = points[p][0]
       var y0 = points[p][1];
 
-      for (var sc = 6; sc > 0; sc--) {
-        var dx = square_size / 2 / (sc_n - 1) * sc;
-        var dy = square_size / 2 / (sc_n - 1) * sc;
+      for (var sc = sc_n; sc > 0; sc--) {
 
         if (sc % 2 == 1) {
-          ctx.fillStyle = clrs[2];
+          figureColor= clrs[2];
         } else {
-          ctx.fillStyle = clrs[1];
+          figureColor = clrs[1];
         }
 
-        ctx.fillRect(x0 - dx, y0 - dy, 2 * dx, 2 * dy);
+        var currentFigureSize = figure_size / (sc_n - 1) * sc;
+        switch(figureType) {
+          case 1: 
+            drawTriangle(x0, y0, currentFigureSize, figureColor, ctx);
+            break;
+          case 2: 
+            drawCircle(x0, y0, currentFigureSize / 2, figureColor, ctx);
+            break;
+          default:
+            drawSquare(x0, y0, currentFigureSize, figureColor, ctx)
+            break;
+        }
       }
     }
   }
+}
+
+function drawSquare(x_center, y_center, width, color, context) {
+  context.fillStyle = color;
+  context.fillRect(x_center - (width / 2) , y_center - (width / 2), width, width);
+
+}
+
+function drawTriangle(x_center, y_center, width, color, context) {
+  var triangleHieght = width * Math.sqrt(3) / 2;
+  context.fillStyle = color;
+  context.beginPath();
+  context.moveTo(x_center + triangleHieght * 2 / 3, y_center);
+  context.lineTo(x_center - (triangleHieght * 1 / 3), y_center - (width / 2));
+  context.lineTo(x_center - (triangleHieght * 1 / 3),  y_center + (width / 2));
+  context.fill();
+}
+
+function drawCircle(x_center, y_center, radius, color, context) {
+  context.fillStyle = color;
+  context.beginPath();
+  context.arc(x_center, y_center, radius, 0, Math.PI * 2, true); 
+  context.fill();
 }
