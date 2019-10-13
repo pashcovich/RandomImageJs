@@ -1,0 +1,27 @@
+{
+  "name": "randomimagejs",
+  "version": "1.0.0",
+  "description": "Pseudo Random Image Generator",
+  "main": "imagegen.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pashcovich/RandomImageJs.git"
+  },
+  "author": "https://github.com/pashcovich",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pashcovich/RandomImageJs/issues"
+  },
+  "homepage": "https://github.com/pashcovich/RandomImageJs#readme",
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.4.2",
+    "hover.css": "^2.3.2",
+    "materialize-css": "^1.0.0"
+  }
+}

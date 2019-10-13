@@ -5,66 +5,53 @@
     <meta charset="UTF-8">
     <title>ImageGenerator</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body{
-            width: 640px;
-            margin: 100px auto;
-        }
-		.title {
-			padding-bottom: 0.3em;
-			font-size: 2em;
-			border-bottom: 1px solid #eaecef;
-		}
-		
-		p {
-		    margin-top: 0;
-			margin-bottom: 16px;
-		}
-		
-		code {
-			padding: 0.2em 0.4em;
-			margin: 0;
-			font-size: 85%;
-			background-color: rgba(27,31,35,0.05);
-			border-radius: 3px;
-		}
-		
-		.btn {
-			display: block;
-			width: 175px;
-			height: 22px;
-			background: #4E9CAF;
-			padding: 10px;
-			text-align: center;
-			border-radius: 5px;
-			color: white;
-			font-weight: bold;
-			margin: 15px auto;
-		}
-		
-		h4 {
-			margin-bottom: 26px;
-		}
-    </style>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="./node_modules/@fortawesome/fontawesome-free/css/fontawesome.min.css"> -->
+    <link rel="stylesheet" href="./node_modules/materialize-css/dist/css/materialize.min.css">
+    <link rel="stylesheet" href="./node_modules/hover.css/css/hover-min.css">
+    <link rel="stylesheet" href="./index.css">
 </head>
 
 <body onload="genImage();">
+  <nav>
+    <div class="nav-wrapper purple">
+      <a href="#" class="brand-logo">RandomImageJs</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="https://github.com/pashcovich/RandomImageJs"><i class="fab fa-github"></i></a></li>
+      </ul>
+    </div>
+  </nav>
 <div id="container">
-	<h1 class="title"><a href="https://github.com/pashcovich/RandomImageJs">RandomImageJs</a></h1>
-    <h2 class="">Pseudo Random Image Generator</h1>
+	<!-- <h1 class="title"><a href="https://github.com/pashcovich/RandomImageJs">RandomImageJs</a></h1> -->
+
+  <!-- <h2 class="">Pseudo Random Image Generator</h2> -->
+  <!-- <div class="divider"></div> -->
 
 	<p>JavaScript implementation of my Python <a href="https://github.com/pashcovich/RandomImage">RandomImage</a> generator</p>
 
 	<p>It will be generate a new image with size 640x480 for canvas element with <code>onload()</code> method</p>
-	
+
 	<h4 style="text-align: center">For new image just press <code>F5</code> or button after image</h4>
-	
-    <canvas id="canvas" width="640" height="480"></canvas>
-	
-	<span><a class="btn" href="#" onclick="genImage()">Generate new image</a></span>
+
+
+  <div class="canvas-section">
+    <div class="row">
+      <div class="col s12">
+        <div class="canvas">
+          <canvas id="canvas" width="640" height="480"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="control-panel">
+    <a class="waves-effect waves-light btn-large purple hvr-grow" onclick="genImage()"><i class="material-icons right">autorenew</i>Generate new image</a>
+  </div>
 </div>
 
 <script src="imagegen.js"></script>
+<script src="./node_modules/materialize-css/dist/js/materialize.min.js"></script>
+<script src="./node_modules/@fortawesome/fontawesome-free/js/fontawesome.min.js"></script>
 
 </body>
 

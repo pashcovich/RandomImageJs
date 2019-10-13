@@ -1,6 +1,6 @@
 #My own test dir
 for_test/
-
+node_modules
 
 ### Python template
 # Byte-compiled / optimized / DLL files
@@ -157,4 +157,3 @@ com_crashlytics_export_strings.xml
 crashlytics.properties
 crashlytics-build.properties
 fabric.properties
-
