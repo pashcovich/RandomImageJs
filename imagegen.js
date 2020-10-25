@@ -89,7 +89,8 @@ function genImage() {
     // 0 - square
     // 1 - triangle
     // 2 - circle 
-    var figureType = getRandomInteger(0, 3);  
+    // 3 - rectangle
+    var figureType = getRandomInteger(0, 4);
 
     var points = [];
 
@@ -136,6 +137,9 @@ function genImage() {
           case 2: 
             drawCircle(x0, y0, currentFigureSize / 2, figureColor, ctx);
             break;
+          case 3: 
+            drawRectangle(x0, y0, currentFigureSize, figureColor, ctx);
+            break;
           default:
             drawSquare(x0, y0, currentFigureSize, figureColor, ctx)
             break;
@@ -166,4 +170,13 @@ function drawCircle(x_center, y_center, radius, color, context) {
   context.beginPath();
   context.arc(x_center, y_center, radius, 0, Math.PI * 2, true); 
   context.fill();
+}
+
+// adds rectangle
+function drawRectangle(x_center, y_center, width, color, context) {
+  context.fillStyle = color;
+  var length = width + 8;
+  var breadth = width - 8;
+  context.fillRect(x_center - (width / 2) , y_center - (width / 2), length, breadth);
+
 }
